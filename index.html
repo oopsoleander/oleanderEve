@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELVET — Premium Club Experiences & VIP Access</title>
+  <meta name="description" content="Exclusive nightlife events. VIP table service, guest list access, and curated experiences. Book your spot in under 60 seconds." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="VELVET — VIP Access · Guest List · Private Events" />
+  <meta property="og:description" content="Skip the queue. Reserve your table. Exclusive events curated for you." />
+  <meta property="og:image" content="https://velvet.events/og-preview.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Event Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "VELVET SATURDAYS — Season Opening",
+    "startDate": "2025-04-05T22:00",
+    "endDate": "2025-04-06T04:00",
+    "location": { "@type": "Place", "name": "The Grand, Mumbai", "address": "Lower Parel, Mumbai" },
+    "organizer": { "@type": "Organization", "name": "VELVET Events" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "LimitedAvailability" }
+  }
+  </script>
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+    ============================================ */
+    :root {
+      --night:   #1E0B2C;
+      --night-80: rgba(30,11,44,0.85);
+      --night-50: rgba(30,11,44,0.5);
+      --gold:    #FFB800;
+      --gold-dim: rgba(255,184,0,0.15);
+      --purple:  #7A5AF8;
+      --blue:    #0F6FC7;
+      --off-white: #F6F9FB;
+      --text-main: #F0EBF8;
+      --text-muted: rgba(240,235,248,0.55);
+      --border: rgba(255,184,0,0.18);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+      --shadow-glow: 0 0 60px rgba(122,90,248,0.25);
+      --shadow-gold: 0 4px 40px rgba(255,184,0,0.2);
+      --transition: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--night);
+      color: var(--text-main);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ============================================
+       NOISE TEXTURE OVERLAY
+    ============================================ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(to bottom, var(--night) 0%, transparent 100%);
+      transition: var(--transition);
+    }
+    .nav.scrolled {
+      background: var(--night-80);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 40px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      transition: var(--transition);
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--night); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text-main); transition: var(--transition); }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(122,90,248,0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(255,184,0,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, #120523 0%, var(--night) 100%);
+    }
+    /* Floating orbs */
+    .orb {
+      position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
+      animation: float 8s ease-in-out infinite;
+    }
+    .orb-1 { width: 400px; height: 400px; background: rgba(122,90,248,0.15); top: -100px; right: -100px; animation-delay: 0s; }
+    .orb-2 { width: 300px; height: 300px; background: rgba(255,184,0,0.08); bottom: 100px; left: -80px; animation-delay: -3s; }
+    .orb-3 { width: 200px; height: 200px; background: rgba(122,90,248,0.12); top: 40%; left: 30%; animation-delay: -5s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; width: 100%; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold);
+      padding: 7px 16px;
+      border: 1px solid rgba(255,184,0,0.3);
+      border-radius: 40px;
+      background: rgba(255,184,0,0.07);
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s var(--transition) both;
+    }
+    .hero-badge::before { content: '✦'; font-size: 0.6rem; }
+    .hero-heading {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 10vw, 7.5rem);
+      font-weight: 300;
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s var(--transition) 0.1s both;
+    }
+    .hero-heading em { font-style: italic; color: var(--gold); }
+    .hero-heading strong { font-weight: 700; }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 48px;
+      animation: fadeUp 0.8s var(--transition) 0.2s both;
+    }
+
+    /* Hero form card */
+    .hero-form-wrap {
+      background: rgba(246,249,251,0.04);
+      border: 1px solid rgba(246,249,251,0.1);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      max-width: 480px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation: fadeUp 0.8s var(--transition) 0.3s both;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.4), var(--shadow-glow);
+    }
+    .form-label {
+      display: block;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 8px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .form-group { margin-bottom: 12px; }
+    .form-input {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(246,249,251,0.06);
+      border: 1px solid rgba(246,249,251,0.12);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+    }
+    .form-input::placeholder { color: rgba(240,235,248,0.35); }
+    .form-input:focus {
+      border-color: var(--blue);
+      background: rgba(15,111,199,0.08);
+      box-shadow: 0 0 0 3px rgba(15,111,199,0.15);
+    }
+    .form-input:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    /* Honeypot */
+    .hp-field { display: none !important; }
+
+    .consent-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      margin: 16px 0;
+    }
+    .consent-row input[type=checkbox] {
+      width: 18px; height: 18px; flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--blue);
+      cursor: pointer;
+    }
+    .consent-text {
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;
+    }
+    .consent-text a { color: var(--blue); text-decoration: underline; }
+
+    .btn-primary {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%;
+      padding: 16px 28px;
+      border-radius: 40px;
+      background: var(--gold);
+      color: var(--night);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .btn-primary:hover::before { transform: translateX(100%); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .privacy-note {
+      display: flex; align-items: center; gap: 6px;
+      margin-top: 14px;
+      font-size: 0.73rem; color: var(--text-muted); line-height: 1.5;
+      text-align: center; justify-content: center;
+    }
+    .privacy-note::before { content: '🔒'; font-size: 0.7rem; }
+
+    /* OTP Step */
+    .form-step { display: none; }
+    .form-step.active { display: block; animation: fadeUp 0.4s ease both; }
+
+    /* ============================================
+       TRUST BAR
+    ============================================ */
+    .trust-bar {
+      position: relative; z-index: 1;
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(30,11,44,0.6);
+      backdrop-filter: blur(12px);
+    }
+    .trust-bar-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .trust-item .icon { font-size: 1rem; }
+    .trust-item strong { color: var(--text-main); }
+
+    /* ============================================
+       HOW IT WORKS
+    ============================================ */
+    section { position: relative; padding: 100px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-heading em { font-style: italic; color: var(--purple); }
+    .section-sub {
+      font-size: 1rem; color: var(--text-muted); max-width: 520px; line-height: 1.7;
+      margin-bottom: 64px;
+    }
+
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .step-card {
+      padding: 36px 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(122,90,248,0.04);
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+    .step-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(122,90,248,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .step-card:hover::before { opacity: 1; }
+    .step-card:hover { border-color: rgba(122,90,248,0.4); transform: translateY(-4px); }
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 4rem; font-weight: 700;
+      color: rgba(255,184,0,0.12);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .step-title {
+      font-size: 1.05rem; font-weight: 500; margin-bottom: 10px;
+    }
+    .step-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+    .step-time {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ============================================
+       EVENTS
+    ============================================ */
+    .events-section { background: linear-gradient(180deg, transparent 0%, rgba(122,90,248,0.05) 50%, transparent 100%); }
+    .events-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;
+    }
+    .event-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(30,11,44,0.6);
+      transition: var(--transition);
+      position: relative;
+    }
+    .event-card:hover { transform: translateY(-6px); border-color: rgba(255,184,0,0.35); box-shadow: var(--shadow-gold); }
+    .event-card-img {
+      width: 100%; height: 220px; object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #2a0f3e 0%, #1a1040 100%);
+    }
+    .event-card-img-placeholder {
+      width: 100%; height: 220px;
+      background: linear-gradient(135deg, #2a0f3e 0%, #1a1040 50%, #0d1a30 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .event-tag {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--gold); color: var(--night);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 20px;
+    }
+    .event-tag.sold-out { background: var(--text-muted); color: var(--night); }
+    .event-card-body { padding: 24px; }
+    .event-date { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .event-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 6px; }
+    .event-venue { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+    .event-meta { display: flex; align-items: center; justify-content: space-between; }
+    .event-spots { font-size: 0.8rem; color: var(--purple); font-weight: 500; }
+    .btn-sm {
+      padding: 9px 20px; border-radius: 30px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      background: transparent; border: 1px solid var(--gold); color: var(--gold);
+      transition: var(--transition);
+    }
+    .btn-sm:hover { background: var(--gold); color: var(--night); }
+
+    /* ============================================
+       GALLERY
+    ============================================ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: linear-gradient(135deg, #2a0f3e 0%, #1a1040 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+    }
+    .gallery-item:hover { transform: scale(0.98); }
+    .gallery-item-1 { grid-row: span 2; font-size: 4rem; }
+    .gallery-item:nth-child(2) { background: linear-gradient(135deg, #1a1040, #0d2040); }
+    .gallery-item:nth-child(3) { background: linear-gradient(135deg, #2a0f3e, #1a0830); }
+    .gallery-item:nth-child(4) { background: linear-gradient(135deg, #0d1a30, #1a1040); }
+    .gallery-item:nth-child(5) { background: linear-gradient(135deg, #1a0830, #2a0f3e); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: rgba(30,11,44,0.6);
+      display: flex; align-items: flex-end;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay-text { font-size: 0.8rem; color: var(--gold); }
+
+    /* ============================================
+       TESTIMONIALS
+    ============================================ */
+    .testimonials-section {
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(122,90,248,0.08) 0%, transparent 70%);
+    }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .testimonial-card {
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(30,11,44,0.5);
+      transition: var(--transition);
+    }
+    .testimonial-card:hover { border-color: rgba(122,90,248,0.4); }
+    .stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 300; font-style: italic;
+      line-height: 1.7; color: var(--text-main);
+      margin-bottom: 24px;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .author-name { font-size: 0.9rem; font-weight: 500; }
+    .author-meta { font-size: 0.75rem; color: var(--text-muted); }
+    .event-pill {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 2px 10px;
+      border-radius: 12px;
+      background: var(--gold-dim);
+      color: var(--gold);
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em;
+    }
+
+    /* ============================================
+       FAQ
+    ============================================ */
+    .faq-list { max-width: 720px; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-question {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0;
+      text-align: left;
+      font-size: 1rem; font-weight: 400;
+      color: var(--text-main);
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-icon {
+      width: 24px; height: 24px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+    .faq-item.open .faq-icon { background: var(--gold); border-color: var(--gold); color: var(--night); transform: rotate(45deg); }
+    .faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .faq-answer-inner {
+      padding-bottom: 22px;
+      font-size: 0.92rem; color: var(--text-muted); line-height: 1.75;
+    }
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json" id="faq-schema"></script>
+
+    /* ============================================
+       FLOATING CTA
+    ============================================ */
+    .floating-cta {
+      position: fixed; bottom: 24px; right: 24px; z-index: 90;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+    }
+    .floating-cta-btn {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 24px;
+      border-radius: 40px;
+      background: var(--gold);
+      color: var(--night);
+      font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      box-shadow: var(--shadow-gold);
+      transition: var(--transition);
+      animation: pulseGlow 2.5s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 4px 20px rgba(255,184,0,0.3); }
+      50% { box-shadow: 0 4px 40px rgba(255,184,0,0.6); }
+    }
+    .floating-cta-btn:hover { transform: scale(1.04); }
+    .floating-cta-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--night);
+      animation: blink 1.2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer {
+      padding: 64px 24px 40px;
+      border-top: 1px solid var(--border);
+      background: rgba(12,5,20,0.8);
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-brand { }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 2rem; font-weight: 700; letter-spacing: 0.2em;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .footer-tagline { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; max-width: 260px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+    .social-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .social-btn:hover { border-color: var(--gold); background: var(--gold-dim); }
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul li a { font-size: 0.88rem; color: var(--text-muted); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--text-main); }
+    .footer-bottom {
+      max-width: 1100px; margin: 0 auto;
+      padding-top: 32px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-legal { font-size: 0.78rem; color: var(--text-muted); }
+    .footer-badges { display: flex; gap: 10px; }
+    .badge {
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex; align-items: center; gap: 5px;
+    }
+
+    /* ============================================
+       MODAL
+    ============================================ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(12,5,20,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #1a0a28;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      max-width: 480px; width: 100%;
+      position: relative;
+      animation: modalIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-close {
+      position: absolute; top: 20px; right: 20px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+    }
+    .modal-close:hover { border-color: var(--gold); color: var(--gold); }
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 2rem; font-weight: 300; margin-bottom: 8px;
+    }
+    .modal-sub { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 32px; }
+
+    /* ============================================
+       COOKIE BANNER
+    ============================================ */
+    .cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+      padding: 20px 24px;
+      background: rgba(20,8,32,0.96);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      display: none;
+      animation: slideUp 0.4s ease both;
+    }
+    .cookie-banner.visible { display: block; }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .cookie-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .cookie-text { font-size: 0.85rem; color: var(--text-muted); max-width: 600px; line-height: 1.6; }
+    .cookie-text a { color: var(--blue); }
+    .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
+    .btn-ghost {
+      padding: 10px 20px; border-radius: 30px;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+      border: 1px solid var(--border); color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .btn-ghost:hover { border-color: var(--text-muted); color: var(--text-main); }
+    .btn-accept {
+      padding: 10px 20px; border-radius: 30px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      background: var(--blue); color: white;
+      transition: var(--transition);
+    }
+
+    /* ============================================
+       TOAST NOTIFICATION
+    ============================================ */
+    .toast-container { position: fixed; top: 24px; right: 24px; z-index: 400; display: flex; flex-direction: column; gap: 10px; }
+    .toast {
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      background: rgba(30,11,44,0.95);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      font-size: 0.88rem;
+      display: flex; align-items: center; gap: 10px;
+      animation: toastIn 0.4s ease both, toastOut 0.4s ease 3.5s both;
+      min-width: 280px;
+    }
+    .toast.success { border-color: rgba(0,200,100,0.4); }
+    .toast.error { border-color: rgba(200,50,50,0.4); }
+    @keyframes toastIn { from { opacity:0; transform: translateX(40px); } to { opacity:1; transform:none; } }
+    @keyframes toastOut { to { opacity:0; transform: translateX(40px); } }
+
+    /* ============================================
+       ANIMATIONS
+    ============================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* Loading spinner */
+    .spinner {
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 2px solid rgba(30,11,44,0.3);
+      border-top-color: var(--night);
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Progress bar */
+    .progress-bar { display: flex; gap: 8px; margin-bottom: 24px; }
+    .progress-step {
+      height: 3px; border-radius: 2px; flex: 1;
+      background: rgba(246,249,251,0.1);
+      transition: background 0.4s;
+    }
+    .progress-step.done { background: var(--blue); }
+    .progress-step.active { background: var(--gold); }
+
+    /* ============================================
+       INSTAGRAM VARIANTS SECTION
+    ============================================ */
+    .ig-variants { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .ig-card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .ig-card:hover { border-color: rgba(255,184,0,0.35); transform: translateY(-4px); }
+    .ig-preview {
+      aspect-ratio: 9/16;
+      background: linear-gradient(160deg, #2a0f3e 0%, #1a1040 50%, #0d2040 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      padding: 24px;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      text-align: center;
+      position: relative;
+    }
+    .ig-preview-label {
+      position: absolute; top: 12px; left: 12px;
+      font-family: var(--font-body);
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 12px;
+      background: rgba(255,184,0,0.15); color: var(--gold);
+      border: 1px solid rgba(255,184,0,0.3);
+    }
+    .ig-card-body { padding: 16px; background: rgba(30,11,44,0.8); }
+    .ig-cta-copy { font-size: 0.9rem; font-weight: 500; margin-bottom: 6px; }
+    .ig-cta-url { font-size: 0.75rem; color: var(--text-muted); word-break: break-all; }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item-1 { grid-row: span 1; }
+      .ig-variants { grid-template-columns: 1fr; }
+      .ig-preview { aspect-ratio: 4/3; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 100px 16px 60px; }
+      .hero-form-wrap { padding: 24px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .trust-bar-inner { flex-direction: column; gap: 16px; }
+      .floating-cta-btn span { display: none; }
+      .section-inner { padding: 0; }
+    }
+
+    /* ============================================
+       ADMIN DASHBOARD (in-page demo)
+    ============================================ */
+    .dashboard-section { background: rgba(12,5,20,0.6); }
+    .dashboard-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 40px; }
+    .stat-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(30,11,44,0.5);
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.8rem; font-weight: 300; color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .stat-change { font-size: 0.75rem; color: #4ade80; margin-top: 4px; }
+    .rsvp-table { width: 100%; border-collapse: collapse; }
+    .rsvp-table th, .rsvp-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    .rsvp-table th { color: var(--text-muted); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+    .status-pill {
+      display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em;
+    }
+    .status-confirmed { background: rgba(74,222,128,0.12); color: #4ade80; }
+    .status-pending { background: rgba(255,184,0,0.12); color: var(--gold); }
+    .status-cancelled { background: rgba(200,50,50,0.12); color: #f87171; }
+
+    /* ============================================
+       PRIVACY POLICY SECTION
+    ============================================ */
+    .privacy-section {
+      max-width: 720px;
+    }
+    .policy-block {
+      margin-bottom: 32px;
+    }
+    .policy-block h3 {
+      font-size: 1rem; font-weight: 500; margin-bottom: 12px; color: var(--gold);
+    }
+    .policy-block p {
+      font-size: 0.88rem; color: var(--text-muted); line-height: 1.75;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ NAVBAR -->
+<nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="VELVET Home">VELVET</a>
+  <ul class="nav-links" role="list">
+    <li><a href="#events">Events</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#apply" class="nav-cta" aria-label="Reserve VIP access">Reserve VIP</a>
+  <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburgerBtn">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ============================================================ HERO -->
+<section class="hero" id="apply" aria-labelledby="hero-heading">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div style="display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
+      <!-- LEFT: Copy -->
+      <div style="flex:1; min-width:280px;">
+        <div class="hero-badge" role="note">Mumbai's Most Exclusive Nights</div>
+        <h1 class="hero-heading" id="hero-heading">
+          The Night<br/><em>Is Yours.</em><br/><strong>Own It.</strong>
+        </h1>
+        <p class="hero-sub">VIP tables, guest list access, and curated experiences — reserved for those who know how to arrive.</p>
+
+        <!-- Social proof ticker -->
+        <div style="display:flex; gap:16px; align-items:center; margin-bottom:40px; flex-wrap:wrap;" class="reveal">
+          <div style="display:flex; align-items:center;">
+            <div style="display:flex; margin-right:8px;">
+              <span style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7A5AF8,#FFB800);border:2px solid var(--night);display:flex;align-items:center;justify-content:center;font-size:0.8rem;margin-left:-8px;flex-shrink:0;">👩</span>
+              <span style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#FFB800,#0F6FC7);border:2px solid var(--night);display:flex;align-items:center;justify-content:center;font-size:0.8rem;margin-left:-8px;flex-shrink:0;">👩</span>
+              <span style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0F6FC7,#7A5AF8);border:2px solid var(--night);display:flex;align-items:center;justify-content:center;font-size:0.8rem;margin-left:-8px;flex-shrink:0;">🧑</span>
+            </div>
+            <span style="font-size:0.82rem;color:var(--text-muted);">+2,400 this season</span>
+          </div>
+          <div style="font-size:0.82rem;color:var(--gold);">★★★★★ 4.9 / 5</div>
+          <div style="font-size:0.82rem;color:var(--text-muted);">👩 Female-friendly</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="hero-form-wrap" id="applyForm" style="flex:0 0 auto;">
+        <!-- Step indicators -->
+        <div class="progress-bar" aria-label="Application steps">
+          <div class="progress-step active" id="prog-1"></div>
+          <div class="progress-step" id="prog-2"></div>
+          <div class="progress-step" id="prog-3"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="form-step active" id="step1">
+          <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:400;margin-bottom:4px;">Reserve Your Spot</p>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:24px;">Takes under 60 seconds · No payment yet</p>
+
+          <!-- Honeypot (hidden from humans) -->
+          <div class="hp-field" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="firstName">First Name</label>
+              <input class="form-input" type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="Aarav" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">Last Name</label>
+              <input class="form-input" type="text" id="lastName" name="lastName" autocomplete="family-name" placeholder="Shah" required aria-required="true" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phoneEmail">Phone or Email</label>
+            <input class="form-input" type="text" id="phoneEmail" name="phoneEmail" autocomplete="tel email" placeholder="+91 98xxx xxxxx or email@..." required aria-required="true" />
+          </div>
+
+          <div class="consent-row">
+            <input type="checkbox" id="consent" required aria-required="true" />
+            <label class="consent-text" for="consent">
+              I agree to the <a href="#privacy-policy">Privacy Policy</a> and <a href="#terms">Terms & Conditions</a>. I consent to receive SMS/email confirmations for my booking.
+            </label>
+          </div>
+
+          <button class="btn-primary" type="button" id="step1Btn" onclick="handleStep1()">
+            <span id="step1BtnText">Reserve VIP · 1 min</span>
+            <div class="spinner" id="step1Spinner" style="display:none;"></div>
+          </button>
+
+          <p class="privacy-note" role="note">We only use this to confirm your booking — no spam. Data encrypted.</p>
+        </div>
+
+        <!-- Step 2: OTP -->
+        <div class="form-step" id="step2">
+          <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:400;margin-bottom:4px;">Verify Your Identity</p>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:24px;" id="otpSubtext">We sent a 6-digit code. Enter it below.</p>
+
+          <div class="form-group">
+            <label class="form-label" for="otpCode">Verification Code</label>
+            <input class="form-input" type="text" id="otpCode" name="otpCode" maxlength="6" inputmode="numeric" pattern="[0-9]{6}" placeholder="_ _ _ _ _ _" autocomplete="one-time-code" aria-label="6-digit OTP code" style="letter-spacing:0.4em;font-size:1.3rem;text-align:center;" />
+          </div>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:20px;">
+            Didn't receive it? <button type="button" style="color:var(--blue);text-decoration:underline;font-size:0.78rem;font-family:inherit;" onclick="resendOTP()">Resend code</button>
+          </p>
+
+          <button class="btn-primary" type="button" onclick="handleStep2()">
+            <span>Confirm Code</span>
+            <div class="spinner" id="step2Spinner" style="display:none;"></div>
+          </button>
+          <p class="privacy-note">Your identity is verified once. We never share it.</p>
+        </div>
+
+        <!-- Step 3: Preferences (optional) -->
+        <div class="form-step" id="step3">
+          <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:400;margin-bottom:4px;">Almost There 🎉</p>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:24px;">Optional — Help us serve you better</p>
+
+          <div class="form-group">
+            <label class="form-label" for="groupSize">Group Size</label>
+            <input class="form-input" type="number" id="groupSize" min="1" max="20" placeholder="e.g. 4" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="preferences">VIP Preferences</label>
+            <input class="form-input" type="text" id="preferences" placeholder="Table service, bottle, specific section..." />
+          </div>
+
+          <button class="btn-primary" type="button" onclick="handleStep3()" style="margin-bottom:12px;">Complete Reservation</button>
+          <button type="button" style="width:100%;text-align:center;color:var(--text-muted);font-size:0.82rem;padding:10px;" onclick="handleStep3()">Skip → Just confirm me</button>
+          <p class="privacy-note">Confirmed. Your spot is locked in.</p>
+        </div>
+
+        <!-- Step 4: Success -->
+        <div class="form-step" id="step4" style="text-align:center;padding:20px 0;">
+          <div style="font-size:3rem;margin-bottom:16px;" aria-hidden="true">🥂</div>
+          <p style="font-family:var(--font-display);font-size:1.6rem;font-weight:400;margin-bottom:8px;">You're In.</p>
+          <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;margin-bottom:28px;">Check your phone/email for confirmation. We'll send a reminder 24 hours before the event.</p>
+          <button class="btn-primary" type="button" onclick="document.getElementById('step4').closest('.hero-form-wrap').style.display='none'">
+            Explore Upcoming Events
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ TRUST BAR -->
+<div class="trust-bar" role="complementary" aria-label="Trust indicators">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="icon" aria-hidden="true">🔐</span> <span>SSL Encrypted</span></div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">💳</span> <strong>Stripe</strong> <span>Verified Payments</span></div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">✅</span> <span>Verified Promoter</span></div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">👩</span> <span>Female-Friendly Guarantee</span></div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">⭐</span> <span>4.9 / 5 (800+ reviews)</span></div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">📸</span> <span>15k Instagram Followers</span></div>
+  </div>
+</div>
+
+<!-- ============================================================ HOW IT WORKS -->
+<section id="how-it-works" aria-labelledby="howitworks-heading">
+  <div class="section-inner">
+    <p class="section-tag reveal">The Process</p>
+    <h2 class="section-heading reveal reveal-delay-1" id="howitworks-heading">Three Steps.<br/><em>One Perfect Night.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">No queues. No uncertainty. Just seamless, premium entry — every time.</p>
+
+    <div class="steps-grid">
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-number" aria-hidden="true">01</div>
+        <h3 class="step-title">Apply in 60 Seconds</h3>
+        <p class="step-desc">Fill in your name and contact details. No payment required upfront. We verify your identity with a quick OTP — keeping everyone safe.</p>
+        <span class="step-time">⏱ Under 1 minute</span>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-number" aria-hidden="true">02</div>
+        <h3 class="step-title">Get Confirmed</h3>
+        <p class="step-desc">Receive your personalized confirmation via SMS and email. Your name goes on the guest list. Optional: add your table preferences or group size.</p>
+        <span class="step-time">⚡ Instantly</span>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-number" aria-hidden="true">03</div>
+        <h3 class="step-title">Arrive & Enjoy</h3>
+        <p class="step-desc">Walk up to the VIP entrance. Show your confirmation code. Skip the queue entirely. Your table, your night, your rules.</p>
+        <span class="step-time">🚀 Zero Wait</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ EVENTS -->
+<section id="events" class="events-section" aria-labelledby="events-heading">
+  <div class="section-inner">
+    <p class="section-tag reveal">Upcoming</p>
+    <h2 class="section-heading reveal reveal-delay-1" id="events-heading"><em>Curated</em> Nights<br/>You Won't Forget.</h2>
+    <p class="section-sub reveal reveal-delay-2">Limited spots per event. Once full, doors close for non-members.</p>
+
+    <div class="events-grid" id="eventsGrid">
+      <!-- Event cards generated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ GALLERY -->
+<section id="gallery" aria-labelledby="gallery-heading" style="padding-bottom:80px;">
+  <div class="section-inner">
+    <p class="section-tag reveal">Gallery</p>
+    <h2 class="section-heading reveal reveal-delay-1" id="gallery-heading">See What<br/><em>Awaits You.</em></h2>
+    <p class="section-sub reveal reveal-delay-2" style="margin-bottom:40px;">Real moments from our events — captured honestly.</p>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item gallery-item-1" aria-label="Main event photo placeholder">
+        🌆
+        <div class="gallery-overlay"><span class="gallery-overlay-text">VELVET Saturdays · Mumbai</span></div>
+      </div>
+      <div class="gallery-item" aria-label="Event photo 2">🎶<div class="gallery-overlay"><span class="gallery-overlay-text">Live Set</span></div></div>
+      <div class="gallery-item" aria-label="Event photo 3">🥂<div class="gallery-overlay"><span class="gallery-overlay-text">Table Service</span></div></div>
+      <div class="gallery-item" aria-label="Event photo 4">💃<div class="gallery-overlay"><span class="gallery-overlay-text">Dance Floor</span></div></div>
+      <div class="gallery-item" aria-label="Event photo 5">🎇<div class="gallery-overlay"><span class="gallery-overlay-text">Season Opening</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ TESTIMONIALS -->
+<section id="testimonials" class="testimonials-section" aria-labelledby="testimonials-heading">
+  <div class="section-inner">
+    <p class="section-tag reveal">What They Say</p>
+    <h2 class="section-heading reveal reveal-delay-1" id="testimonials-heading">Real People.<br/><em>Real Nights.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Stories from guests who made it through our doors.</p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="testimonial-text">"Honestly, the easiest club experience I've ever had. One form, one OTP, and we had a table for six ready when we arrived. Zero drama."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">👩</div>
+          <div>
+            <div class="author-name">Riya M.</div>
+            <div class="author-meta">Marketing Lead · Delhi</div>
+            <span class="event-pill" aria-label="Event: VELVET Saturdays">VELVET Saturdays</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="testimonial-text">"As a group of five women, safety matters to us. VELVET's female-friendly promise isn't just a badge — staff actually checked in on us. Will be back every week."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">👩</div>
+          <div>
+            <div class="author-name">Priya K. & Group</div>
+            <div class="author-meta">Professionals · Bangalore</div>
+            <span class="event-pill">Ladies Night</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="testimonial-text">"I came via an Instagram Story ad, booked in 45 seconds, and walked straight past a 90-min queue. The OTP system is genius. Never going back to other promoters."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">🧑</div>
+          <div>
+            <div class="author-name">Arjun T.</div>
+            <div class="author-meta">Entrepreneur · Mumbai</div>
+            <span class="event-pill">Season Opening</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ INSTAGRAM VARIANTS -->
+<section id="instagram-variants" aria-labelledby="ig-heading">
+  <div class="section-inner">
+    <p class="section-tag reveal">Instagram Strategy</p>
+    <h2 class="section-heading reveal reveal-delay-1" id="ig-heading">Three Link Variants.<br/><em>One Tap Apply.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Pre-filled UTM-linked pages — optimized for Story swipe-ups, Link-in-Bio, and sponsored ads.</p>
+
+    <div class="ig-variants reveal">
+      <div class="ig-card">
+        <div class="ig-preview">
+          <div class="ig-preview-label">Story</div>
+          <div style="margin-bottom:auto;margin-top:auto;font-size:2.5rem;opacity:0.3;">✦</div>
+          <div>
+            <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">Girls Free till 11</div>
+            <div style="font-family:var(--font-body);font-size:0.8rem;color:var(--text-muted);">Apply Now → VELVET</div>
+          </div>
+        </div>
+        <div class="ig-card-body">
+          <div class="ig-cta-copy">Girls Free till 11 — Apply</div>
+          <div class="ig-cta-url" id="ig-url-1">velvet.events/?utm_source=instagram&utm_medium=story&offer=ladiesfree</div>
+          <button class="btn-sm" onclick="copyURL('ig-url-1')" style="margin-top:10px;width:100%;" aria-label="Copy Story UTM URL">Copy URL</button>
+        </div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-preview" style="background:linear-gradient(160deg,#1a0830,#0d1a30,#1a1040);">
+          <div class="ig-preview-label">Link-in-Bio</div>
+          <div style="margin-bottom:auto;margin-top:auto;font-size:2.5rem;opacity:0.3;">🎶</div>
+          <div>
+            <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">Reserve VIP</div>
+            <div style="font-family:var(--font-body);font-size:0.8rem;color:var(--text-muted);">1 minute · Limited spots</div>
+          </div>
+        </div>
+        <div class="ig-card-body">
+          <div class="ig-cta-copy">Reserve VIP • 1 min</div>
+          <div class="ig-cta-url" id="ig-url-2">velvet.events/?utm_source=instagram&utm_medium=bio&utm_campaign=vip</div>
+          <button class="btn-sm" onclick="copyURL('ig-url-2')" style="margin-top:10px;width:100%;" aria-label="Copy Bio UTM URL">Copy URL</button>
+        </div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-preview" style="background:linear-gradient(160deg,#0d2040,#1a0830,#2a0f3e);">
+          <div class="ig-preview-label">Sponsored Ad</div>
+          <div style="margin-bottom:auto;margin-top:auto;font-size:2.5rem;opacity:0.3;">🥂</div>
+          <div>
+            <div style="color:var(--gold);font-size:1.4rem;margin-bottom:6px;">RSVP • Limited</div>
+            <div style="font-family:var(--font-body);font-size:0.8rem;color:var(--text-muted);">Tap to secure your spot</div>
+          </div>
+        </div>
+        <div class="ig-card-body">
+          <div class="ig-cta-copy">RSVP • Limited Spots</div>
+          <div class="ig-cta-url" id="ig-url-3">velvet.events/?utm_source=instagram&utm_medium=paid&utm_campaign=rsvp</div>
+          <button class="btn-sm" onclick="copyURL('ig-url-3')" style="margin-top:10px;width:100%;" aria-label="Copy Ad UTM URL">Copy URL</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;padding:28px;border:1px solid var(--border);border-radius:var(--radius-md);background:rgba(30,11,44,0.4);" class="reveal">
+      <p style="font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">DM Rapid Reply Template</p>
+      <div style="font-family:monospace;font-size:0.82rem;color:var(--text-muted);line-height:1.8;background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;white-space:pre-wrap;" id="dmTemplate">Hey! 👋 Thanks for your interest in VELVET.
+
+Reserve your spot in 60 seconds here:
+👉 velvet.events/?utm_source=dm&utm_medium=instagram
+
+What to expect:
+✓ VIP entry — skip the queue
+✓ Optional table service
+✓ Safe, female-friendly environment
+✓ Confirmation via SMS instantly
+
+Questions? Reply here anytime. See you Saturday! 🥂</div>
+      <button class="btn-sm" onclick="copyText('dmTemplate')" style="margin-top:12px;" aria-label="Copy DM template">Copy DM Template</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FAQ -->
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="section-inner">
+    <p class="section-tag reveal">FAQ</p>
+    <h2 class="section-heading reveal reveal-delay-1" id="faq-heading">Questions<br/><em>Answered.</em></h2>
+
+    <div class="faq-list reveal" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          Is my personal data safe?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p class="faq-answer-inner">Yes. All data is encrypted in transit (TLS 1.3) and at rest. Sensitive fields like phone numbers are hashed. We never sell or share your data. We retain booking data for 90 days after the event, then purge it. Full details in our <a href="#privacy-policy" style="color:var(--blue);">Privacy Policy</a>.</p>
+        </div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          Do I need to pay to apply?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p class="faq-answer-inner">No payment is required to apply for guest list access. Some events require a refundable deposit to secure a VIP table — this is clearly communicated on the event page before any payment step. Payments are processed securely via Stripe.</p>
+        </div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          What is the OTP verification for?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p class="faq-answer-inner">OTP (One-Time Password) verification confirms that the contact details you provided are real and belong to you. This prevents fake bookings and keeps our guest list accurate — so you always have a guaranteed spot and nobody else can use your name.</p>
+        </div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          Is VELVET safe for women / groups of women?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p class="faq-answer-inner">Absolutely. Our female-friendly guarantee includes dedicated female staff at entry and inside, strict code-of-conduct enforcement, and zero tolerance for harassment. Groups of women receive priority entry and complimentary access to reserved sections. We can be contacted directly via Instagram DM if any issue arises.</p>
+        </div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          Can I cancel or transfer my booking?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" role="region">
+          <p class="faq-answer-inner">Guest list spots (no deposit) can be cancelled up to 4 hours before the event via your confirmation link or by replying to your SMS. Table deposits are fully refundable if cancelled 48 hours in advance. Bookings can be transferred to another person by contacting us directly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ADMIN DASHBOARD -->
+<section id="admin" class="dashboard-section" aria-labelledby="admin-heading">
+  <div class="section-inner">
+    <p class="section-tag reveal">Admin</p>
+    <h2 class="section-heading reveal reveal-delay-1" id="admin-heading">RSVP<br/><em>Dashboard.</em></h2>
+    <p class="section-sub reveal reveal-delay-2" style="margin-bottom:40px;">Live view of applications, confirmations, and revenue.</p>
+
+    <div class="dashboard-grid reveal">
+      <div class="stat-card">
+        <div class="stat-number" aria-label="247 applications">247</div>
+        <div class="stat-label">Applications</div>
+        <div class="stat-change">↑ 18% vs last week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" aria-label="189 confirmed">189</div>
+        <div class="stat-label">Confirmed (OTP)</div>
+        <div class="stat-change">↑ 76.5% verify rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" aria-label="42 VIP tables">42</div>
+        <div class="stat-label">VIP Tables Booked</div>
+        <div class="stat-change">↑ 23% vs last event</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" aria-label="₹1.4L revenue">₹1.4L</div>
+        <div class="stat-label">Revenue (Deposits)</div>
+        <div class="stat-change">↑ 31% MoM</div>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto;" class="reveal">
+      <table class="rsvp-table" aria-label="Recent RSVP applications">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Event</th>
+            <th scope="col">Group Size</th>
+            <th scope="col">Status</th>
+            <th scope="col">Applied</th>
+          </tr>
+        </thead>
+        <tbody id="rsvpTableBody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PRIVACY POLICY -->
+<section id="privacy-policy" aria-labelledby="privacy-heading">
+  <div class="section-inner">
+    <p class="section-tag reveal">Legal</p>
+    <h2 class="section-heading reveal reveal-delay-1" id="privacy-heading">Privacy<br/><em>Policy.</em></h2>
+
+    <div class="privacy-section reveal">
+      <div class="policy-block">
+        <h3>1. Data We Collect</h3>
+        <p>We collect your name, phone number or email address, and optional preferences (group size, event preferences) solely for the purpose of managing your event booking. We also collect IP address and UTM parameters for fraud prevention and analytics.</p>
+      </div>
+      <div class="policy-block">
+        <h3>2. How We Use It</h3>
+        <p>Your data is used exclusively to confirm bookings, send event reminders, and provide event access. We do not sell, rent, or share your data with third parties except our vetted service providers (Twilio for SMS, SendGrid for email, Stripe for payments, Supabase for storage) under strict data processing agreements.</p>
+      </div>
+      <div class="policy-block">
+        <h3>3. Data Security</h3>
+        <p>All data is encrypted in transit using TLS 1.3. Sensitive fields (phone numbers) are hashed using bcrypt before storage. Payment details are handled exclusively by Stripe and are never stored on our servers. We conduct quarterly security reviews.</p>
+      </div>
+      <div class="policy-block">
+        <h3>4. Retention Policy</h3>
+        <p>Booking data is retained for 90 days following the event date, then permanently deleted. Analytics data (anonymized) may be retained for up to 12 months for business improvement purposes.</p>
+      </div>
+      <div class="policy-block">
+        <h3>5. Your Rights</h3>
+        <p>You have the right to access, correct, or delete your personal data at any time. To exercise these rights, email <a href="mailto:privacy@velvet.events" style="color:var(--blue);">privacy@velvet.events</a> or reply to any confirmation message. We will respond within 72 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo" aria-label="VELVET">VELVET</div>
+      <p class="footer-tagline">Premium nightlife experiences crafted for those who value access, safety, and unforgettable memories.</p>
+      <div class="footer-socials" aria-label="Social media links">
+        <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+        <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+        <a href="#" class="social-btn" aria-label="Whatsapp">💬</a>
+        <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Events</h4>
+      <ul>
+        <li><a href="#events">Upcoming Events</a></li>
+        <li><a href="#apply">Reserve Guest List</a></li>
+        <li><a href="#events">VIP Tables</a></li>
+        <li><a href="#">Private Bookings</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About VELVET</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">For Venues</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#privacy-policy">Privacy Policy</a></li>
+        <li><a href="#terms">Terms & Conditions</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Cookie Settings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-legal">© 2025 VELVET Events. All rights reserved. · GSTIN: 27XXXXX1234X1ZX</p>
+    <div class="footer-badges">
+      <div class="badge">🔒 SSL</div>
+      <div class="badge">💳 Stripe</div>
+      <div class="badge">✅ Verified</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ FLOATING CTA -->
+<div class="floating-cta" aria-label="Quick reserve">
+  <a href="#apply" class="floating-cta-btn">
+    <div class="floating-cta-dot" aria-hidden="true"></div>
+    <span>Reserve VIP</span>
+  </a>
+</div>
+
+<!-- ============================================================ COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-modal="true">
+  <div class="cookie-inner">
+    <p class="cookie-text" id="cookieTitle">We use essential cookies for booking functionality, and analytics cookies (GA4, Meta Pixel) if you consent. Read our <a href="#privacy-policy">Privacy Policy</a>.</p>
+    <div class="cookie-btns">
+      <button class="btn-ghost" onclick="handleCookies('essential')" aria-label="Accept essential cookies only">Essential Only</button>
+      <button class="btn-accept" onclick="handleCookies('all')" aria-label="Accept all cookies">Accept All</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ MODAL (Booking Confirm) -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close modal">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- ============================================================ TOAST CONTAINER -->
+<div class="toast-container" aria-live="polite" aria-atomic="true" id="toastContainer"></div>
+
+<!-- ============================================================ JAVASCRIPT -->
+<script>
+  /* ====================== UTM / URL Params ====================== */
+  function getParam(key) {
+    return new URLSearchParams(window.location.search).get(key) || '';
+  }
+  (function prefillFromURL() {
+    const email = getParam('email');
+    const phone = getParam('phone');
+    const name  = getParam('name');
+    if (email) document.getElementById('phoneEmail').value = email;
+    else if (phone) document.getElementById('phoneEmail').value = phone;
+    if (name) document.getElementById('firstName').value = name.split(' ')[0] || '';
+  })();
+
+  /* ====================== NAVBAR ====================== */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ====================== SCROLL REVEAL ====================== */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ====================== TOAST ====================== */
+  function showToast(msg, type = 'success') {
+    const t = document.createElement('div');
+    t.className = `toast ${type}`;
+    t.innerHTML = `<span>${type === 'success' ? '✓' : '✗'}</span> ${msg}`;
+    document.getElementById('toastContainer').appendChild(t);
+    setTimeout(() => t.remove(), 4000);
+  }
+
+  /* ====================== FORM FLOW ====================== */
+  let applicationToken = null;
+  let contactValue = '';
+
+  async function handleStep1() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const contact = document.getElementById('phoneEmail').value.trim();
+    const consent = document.getElementById('consent').checked;
+    const hp = document.querySelector('[name="website"]').value;
+
+    if (hp) return; // Honeypot caught
+    if (!firstName || !contact) { showToast('Please fill in all required fields.', 'error'); return; }
+    if (!consent) { showToast('Please agree to the Privacy Policy to continue.', 'error'); return; }
+
+    setLoading('step1Btn', 'step1Spinner', true);
+    contactValue = contact;
+
+    try {
+      // Demo mode: simulate API
+      await new Promise(r => setTimeout(r, 1200));
+      applicationToken = 'demo_token_' + Date.now();
+      const isPhone = /^\+?[\d\s]{9,}$/.test(contact);
+      document.getElementById('otpSubtext').textContent =
+        `We sent a 6-digit code to ${contact.slice(0,4)}••••. Enter it below.`;
+      showToast(`Code sent to ${isPhone ? 'your phone' : 'your email'}!`);
+      goStep(2);
+    } catch(e) {
+      showToast('Something went wrong. Please try again.', 'error');
+    } finally {
+      setLoading('step1Btn', 'step1Spinner', false);
+    }
+  }
+
+  async function handleStep2() {
+    const otp = document.getElementById('otpCode').value.trim();
+    if (otp.length < 6) { showToast('Please enter your 6-digit code.', 'error'); return; }
+    setLoading(null, 'step2Spinner', true);
+    await new Promise(r => setTimeout(r, 900));
+    // Demo: accept any 6-digit code
+    showToast('Identity verified! 🎉');
+    goStep(3);
+    setLoading(null, 'step2Spinner', false);
+  }
+
+  async function handleStep3() {
+    await new Promise(r => setTimeout(r, 600));
+    showToast('Reservation confirmed! Check your phone/email. 🥂');
+    goStep(4);
+    // Track conversion
+    trackEvent('apply_complete', { contact: contactValue.slice(0,4) + '••••' });
+  }
+
+  async function resendOTP() {
+    await new Promise(r => setTimeout(r, 400));
+    showToast('New code sent!');
+  }
+
+  function goStep(n) {
+    [1,2,3,4].forEach(i => {
+      document.getElementById('step' + i).classList.toggle('active', i === n);
+      const p = document.getElementById('prog-' + i);
+      if (p) {
+        p.classList.remove('active', 'done');
+        if (i < n) p.classList.add('done');
+        else if (i === n) p.classList.add('active');
+      }
+    });
+  }
+
+  function setLoading(btnId, spinnerId, on) {
+    if (btnId) document.getElementById(btnId).disabled = on;
+    document.getElementById(spinnerId).style.display = on ? 'block' : 'none';
+    if (btnId) {
+      const txt = document.getElementById(btnId + 'Text');
+      if (txt) txt.style.opacity = on ? '0' : '1';
+    }
+  }
+
+  /* ====================== ANALYTICS ====================== */
+  function trackEvent(name, params) {
+    if (typeof gtag !== 'undefined') gtag('event', name, params);
+    if (typeof fbq !== 'undefined') fbq('track', name, params);
+    console.log('[Analytics]', name, params);
+  }
+  // Track UTM on load
+  window.addEventListener('load', () => {
+    const src = getParam('utm_source');
+    if (src) trackEvent('apply_start', { utm_source: src });
+  });
+
+  /* ====================== EVENTS DATA ====================== */
+  const sampleEvents = [
+    { id: 1, name: 'VELVET Saturdays', date: 'SAT, APR 5 · 10PM', venue: 'The Grand, Lower Parel', emoji: '🌆', tag: 'Season Opener', spots: '12 spots left', featured: true },
+    { id: 2, name: 'Ladies Night Deluxe', date: 'FRI, APR 11 · 9PM', venue: 'Elevate, Bandra', emoji: '💃', tag: 'Girls Free till 11', spots: '28 spots left', featured: false },
+    { id: 3, name: 'Birthday Blackout', date: 'SAT, APR 19 · 11PM', venue: 'Playboy Club, Juhu', emoji: '🎇', tag: 'Sold Out', spots: 'Waitlist', soldOut: true },
+  ];
+
+  function renderEvents() {
+    const grid = document.getElementById('eventsGrid');
+    grid.innerHTML = sampleEvents.map(ev => `
+      <article class="event-card" aria-label="Event: ${ev.name}">
+        <div class="event-card-img-placeholder" aria-hidden="true">${ev.emoji}</div>
+        <span class="event-tag${ev.soldOut ? ' sold-out' : ''}">${ev.tag}</span>
+        <div class="event-card-body">
+          <div class="event-date">${ev.date}</div>
+          <h3 class="event-name">${ev.name}</h3>
+          <p class="event-venue">📍 ${ev.venue}</p>
+          <div class="event-meta">
+            <span class="event-spots">${ev.soldOut ? '⚠️ Waitlist Only' : '⚡ ' + ev.spots}</span>
+            <button class="btn-sm" onclick="openEventModal(${ev.id})" aria-label="Apply for ${ev.name}">${ev.soldOut ? 'Join Waitlist' : 'Apply'}</button>
+          </div>
+        </div>
+      </article>
+    `).join('');
+  }
+  renderEvents();
+
+  function openEventModal(id) {
+    const ev = sampleEvents.find(e => e.id === id);
+    if (!ev) return;
+    document.getElementById('modalContent').innerHTML = `
+      <h2 class="modal-title">${ev.name}</h2>
+      <p class="modal-sub">${ev.date} · ${ev.venue}</p>
+      <a href="#apply" class="btn-primary" onclick="closeModal()" style="display:flex;width:100%;text-align:center;justify-content:center;">
+        ${ev.soldOut ? 'Join Waitlist' : 'Reserve My Spot'} →
+      </a>
+    `;
+    document.getElementById('modalOverlay').classList.add('open');
+    document.getElementById('modalOverlay').setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.getElementById('modalOverlay').setAttribute('aria-hidden', 'true');
+  }
+  document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  /* ====================== FAQ ACCORDION ====================== */
+  function toggleFAQ(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = '0';
+      i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  /* ====================== COPY HELPERS ====================== */
+  function copyURL(id) {
+    const text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText('https://' + text).then(() => showToast('URL copied!'));
+  }
+  function copyText(id) {
+    navigator.clipboard.writeText(document.getElementById(id).textContent)
+      .then(() => showToast('Copied to clipboard!'));
+  }
+
+  /* ====================== COOKIE BANNER ====================== */
+  (function() {
+    if (!localStorage.getItem('cookieConsent')) {
+      setTimeout(() => document.getElementById('cookieBanner').classList.add('visible'), 1200);
+    }
+  })();
+  function handleCookies(level) {
+    localStorage.setItem('cookieConsent', level);
+    document.getElementById('cookieBanner').classList.remove('visible');
+    if (level === 'all') showToast('Preferences saved. Thank you!');
+  }
+
+  /* ====================== ADMIN TABLE (demo data) ====================== */
+  const rsvpData = [
+    { name: 'Riya M.', contact: '+91 98•••••890', event: 'VELVET Saturdays', group: 5, status: 'confirmed', date: '2 hrs ago' },
+    { name: 'Arjun T.', contact: 'arjun@••••.com', event: 'Ladies Night', group: 2, status: 'pending', date: '3 hrs ago' },
+    { name: 'Priya K.', contact: '+91 77•••••123', event: 'VELVET Saturdays', group: 6, status: 'confirmed', date: '4 hrs ago' },
+    { name: 'Karan S.', contact: '+91 90•••••567', event: 'Birthday Blackout', group: 4, status: 'cancelled', date: '5 hrs ago' },
+  ];
+  document.getElementById('rsvpTableBody').innerHTML = rsvpData.map(r => `
+    <tr>
+      <td>${r.name}</td>
+      <td>${r.contact}</td>
+      <td>${r.event}</td>
+      <td>${r.group}</td>
+      <td><span class="status-pill status-${r.status}">${r.status.charAt(0).toUpperCase() + r.status.slice(1)}</span></td>
+      <td style="color:var(--text-muted)">${r.date}</td>
+    </tr>
+  `).join('');
+
+  /* ====================== HAMBURGER MENU ====================== */
+  const hamburger = document.getElementById('hamburgerBtn');
+  hamburger.addEventListener('click', () => {
+    const navLinks = document.querySelector('.nav-links');
+    const isOpen = navLinks.style.display === 'flex';
+    navLinks.style.display = isOpen ? '' : 'flex';
+    navLinks.style.position = 'fixed';
+    navLinks.style.top = '70px';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.background = 'rgba(20,8,32,0.98)';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.gap = '0';
+    navLinks.style.padding = '20px 24px';
+    navLinks.style.borderBottom = '1px solid var(--border)';
+    navLinks.style.backdropFilter = 'blur(20px)';
+    hamburger.setAttribute('aria-expanded', !isOpen);
+  });
+</script>
+</body>
+</html>
